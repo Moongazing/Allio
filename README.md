@@ -1,10 +1,10 @@
 Enterprise Resource Planning Microservices Architecture
 
 
-Overview
+📜 Overview
 Allio is designed as a modular, event-driven and scalable ERP system built with modern technologies including .NET 9, MediatR, MassTransit (RabbitMQ), Serilog, Dynamic LINQ, and EF Core 9.
 
-📜 Technology Stack
+🛠️ Technology Stack
 
 📌 Backend
 
