@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moongazing.Allio.SupplyChai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moongazing.Kernel.Persistence", "src\Kernel\Moongazing.Kernel.Persistence\Moongazing.Kernel.Persistence.csproj", "{E442A7A7-4128-DF76-3963-82A47950F02B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moongazing.Kernel.Shared", "src\Kernel\Moongazing.Kernel.Shared\Moongazing.Kernel.Shared.csproj", "{8DC5881C-9C9E-4477-8169-F5CE8139975F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -247,6 +249,10 @@ Global
 		{E442A7A7-4128-DF76-3963-82A47950F02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E442A7A7-4128-DF76-3963-82A47950F02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E442A7A7-4128-DF76-3963-82A47950F02B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC5881C-9C9E-4477-8169-F5CE8139975F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC5881C-9C9E-4477-8169-F5CE8139975F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC5881C-9C9E-4477-8169-F5CE8139975F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC5881C-9C9E-4477-8169-F5CE8139975F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -297,6 +303,7 @@ Global
 		{18CECF00-17D6-47AD-9895-7032123180AA} = {12D4E7D3-ECA4-44DA-947A-EAC1EAD275C1}
 		{3561EF5E-A0C3-AC80-BC6D-A04F543D4C64} = {8110D867-6628-4332-B130-C1C74B9D6C6D}
 		{E442A7A7-4128-DF76-3963-82A47950F02B} = {FF14F3DC-7975-4974-92FF-17755A948928}
+		{8DC5881C-9C9E-4477-8169-F5CE8139975F} = {FF14F3DC-7975-4974-92FF-17755A948928}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3091F045-E693-4F6A-8A08-B91E898D46EA}

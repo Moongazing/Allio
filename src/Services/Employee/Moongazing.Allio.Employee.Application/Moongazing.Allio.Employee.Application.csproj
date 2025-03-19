@@ -9,11 +9,20 @@
   <ItemGroup>
     <Folder Include="Features\AdvanceRequests\Commands\Create\" />
     <Folder Include="Features\AdvanceRequests\Commands\Delete\" />
+    <Folder Include="Features\AdvanceRequests\Commands\ChangeStatus\" />
     <Folder Include="Features\AdvanceRequests\Commands\Update\" />
     <Folder Include="Features\AdvanceRequests\Constants\" />
     <Folder Include="Features\AdvanceRequests\Queries\GetById\" />
     <Folder Include="Features\AdvanceRequests\Queries\GetListByDynamic\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByApprovedAmount\" />
     <Folder Include="Features\AdvanceRequests\Queries\GetList\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByRequestDate\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByApprovalDate\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByApproved\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByReason\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByRequestedAmount\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByBetweenDates\" />
+    <Folder Include="Features\AdvanceRequests\Queries\GetListByEmployee\" />
     <Folder Include="Features\AdvanceRequests\Rules\" />
     <Folder Include="Features\Attandances\Commands\Create\" />
     <Folder Include="Features\Attandances\Commands\Delete\" />
@@ -22,6 +31,8 @@
     <Folder Include="Features\Attandances\Queries\GetById\" />
     <Folder Include="Features\Attandances\Queries\GetListByDynamic\" />
     <Folder Include="Features\Attandances\Queries\GetList\" />
+    <Folder Include="Features\Attandances\Queries\GetListByStatus\" />
+    <Folder Include="Features\Attandances\Queries\GetByEmployeeId\" />
     <Folder Include="Features\Attandances\Rules\" />
     <Folder Include="Features\Awards\Commands\Create\" />
     <Folder Include="Features\Awards\Commands\Delete\" />
@@ -98,7 +109,6 @@
     <Folder Include="Features\Employees\Queries\GetById\" />
     <Folder Include="Features\Employees\Queries\GetListByDynamic\" />
     <Folder Include="Features\Employees\Queries\GetList\" />
-    <Folder Include="Features\Employees\Rules\" />
     <Folder Include="Features\ExpenseRecords\Commands\Create\" />
     <Folder Include="Features\ExpenseRecords\Commands\Delete\" />
     <Folder Include="Features\ExpenseRecords\Commands\Update\" />
@@ -174,6 +184,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Application\Moongazing.Kernel.Application.csproj" />
     <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Persistence\Moongazing.Kernel.Persistence.csproj" />
     <ProjectReference Include="..\Moongazing.Allio.Employee.Domain\Moongazing.Allio.Employee.Domain.csproj" />
   </ItemGroup>

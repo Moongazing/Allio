@@ -10,6 +10,7 @@ public class AdvanceRequestEntity : Entity<Guid>
     public decimal ApprovedAmount { get; set; }
     public AdvanceRequestReason Reason { get; set; } = default!;
     public bool IsApproved { get; set; } = false;
+    public string? RejecttReason { get; set; }
     public DateTime RequestDate { get; set; }
     public DateTime? ApprovalDate { get; set; }
 
