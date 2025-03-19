@@ -14,11 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Persistence\Moongazing.Kernel.Persistence.csproj" />
+    <ProjectReference Include="..\Moongazing.Allio.Employee.Application\Moongazing.Allio.Employee.Application.csproj" />
     <ProjectReference Include="..\Moongazing.Allio.Employee.Domain\Moongazing.Allio.Employee.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

@@ -171,7 +171,11 @@
     <Folder Include="Features\Terminations\Queries\GetListByDynamic\" />
     <Folder Include="Features\Terminations\Queries\GetList\" />
     <Folder Include="Features\Terminations\Rules\" />
-    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Persistence\Moongazing.Kernel.Persistence.csproj" />
+    <ProjectReference Include="..\Moongazing.Allio.Employee.Domain\Moongazing.Allio.Employee.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Persistence.Repositories;
