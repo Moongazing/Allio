@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Moongazing.Allio.Employee.Domain\Moongazing.Allio.Employee.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
