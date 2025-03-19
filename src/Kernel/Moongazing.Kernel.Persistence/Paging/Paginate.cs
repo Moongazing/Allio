@@ -20,7 +20,7 @@ public class Paginate<T> : IPaginate<T>
         else
         {
             T[] enumerable = source as T[] ?? source.ToArray();
-            Count = enumerable.Count();
+            Count = enumerable.Length;
             Items = enumerable.Skip((Index - From) * Size).Take(Size).ToList();
         }
     }
@@ -64,7 +64,7 @@ public class Paginate<TSource, TResult> : IPaginate<TResult>
         else
         {
             TSource[] enumerable = source as TSource[] ?? source.ToArray();
-            Count = enumerable.Count();
+            Count = enumerable.Length;
             TSource[] items = enumerable.Skip((Index - From) * Size).Take(Size).ToArray();
             Items = new List<TResult>(converter(items));
         }
