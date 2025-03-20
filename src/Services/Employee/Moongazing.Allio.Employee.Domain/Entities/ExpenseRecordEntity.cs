@@ -12,7 +12,6 @@ public class ExpenseRecordEntity : Entity<Guid>
     public DateTime ExpenseDate { get; set; }
     public bool IsReimbursed { get; set; } = false;
     public string DocumentUrl { get; set; } = default!;
-
     public virtual DocumentEntity? Document { get; set; }
     public virtual EmployeeEntity Employee { get; set; } = default!;
 
