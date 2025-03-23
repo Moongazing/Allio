@@ -9,9 +9,11 @@ using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByBankName;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByCurrency;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByDynamic;
 using Moongazing.Allio.Employee.Domain.Enums;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
+using Moongazing.Kernel.Persistence.Dynamic;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -87,6 +89,13 @@ public sealed class BankDetailsController : BaseController
     {
         GetListBankDetailByCurrencyQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, Currency = currency };
         PaginatedResponse<GetListBankDetailByCurrencyResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpPost("search")]
+    public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery)
+    {
+        GetListBankDetailByDynamicQuery getListBankDetailByDynamicQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery! };
+        PaginatedResponse<GetListBankDetailByDynamicResponse> result = await Sender.Send(getListBankDetailByDynamicQuery).ConfigureAwait(false);
         return Ok(result);
     }
 }
