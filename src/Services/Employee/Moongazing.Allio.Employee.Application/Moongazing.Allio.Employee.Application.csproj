@@ -44,7 +44,6 @@
     <Folder Include="Features\Awards\Queries\GetListByDate\" />
     <Folder Include="Features\Awards\Queries\GetListByEmployee\" />
     <Folder Include="Features\Awards\Rules\" />
-    <Folder Include="Features\BankDetails\Commands\Create\" />
     <Folder Include="Features\BankDetails\Commands\Delete\" />
     <Folder Include="Features\BankDetails\Commands\Update\" />
     <Folder Include="Features\BankDetails\Constants\" />
@@ -55,7 +54,6 @@
     <Folder Include="Features\BankDetails\Queries\GetByAccountNumber\" />
     <Folder Include="Features\BankDetails\Queries\GetByIban\" />
     <Folder Include="Features\BankDetails\Queries\GetByBankName\" />
-    <Folder Include="Features\BankDetails\Rules\" />
     <Folder Include="Features\Benefits\Commands\Create\" />
     <Folder Include="Features\Benefits\Commands\Delete\" />
     <Folder Include="Features\Benefits\Commands\Update\" />

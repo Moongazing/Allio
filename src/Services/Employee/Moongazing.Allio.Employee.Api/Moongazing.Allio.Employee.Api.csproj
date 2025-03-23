@@ -32,6 +32,7 @@
     <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.CrossCuttingConcerns\Moongazing.Kernel.CrossCuttingConcerns.csproj" />
     <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Mailing\Moongazing.Kernel.Mailing.csproj" />
     <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Persistence\Moongazing.Kernel.Persistence.csproj" />
+    <ProjectReference Include="..\..\..\Kernel\Moongazing.Kernel.Shared\Moongazing.Kernel.Shared.csproj" />
     <ProjectReference Include="..\Moongazing.Allio.Employee.Application\Moongazing.Allio.Employee.Application.csproj" />
     <ProjectReference Include="..\Moongazing.Allio.Employee.Persistence\Moongazing.Allio.Employee.Persistence.csproj" />
   </ItemGroup>
