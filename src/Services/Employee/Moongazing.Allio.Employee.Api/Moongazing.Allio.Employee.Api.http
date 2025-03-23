@@ -1,6 +1,65 @@
-@Moongazing.Allio.Employee.Api_HostAddress = http://localhost:5050
+﻿@Moongazing.Allio.Employee.Api_HostAddress = http://localhost:5050
 
-GET {{Moongazing.Allio.Employee.Api_HostAddress}}/weatherforecast/
+### Create a new bank detail
+POST {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails
+Content-Type: application/json
+Accept: application/json
+
+{
+  "bankName": "Ziraat Bankası",
+  "accountNumber": "1234567890",
+  "iban": "TR000000000000000000000000",
+  "currency": "TRY",
+  "employeeId": "00000000-0000-0000-0000-000000000000"
+}
+
+###
+
+### Update an existing bank detail
+PUT {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "bankName": "Garanti",
+  "accountNumber": "9876543210",
+  "iban": "TR111111111111111111111111",
+  "currency": "TRY",
+  "employeeId": "00000000-0000-0000-0000-000000000000"
+}
+
+###
+
+### Delete a bank detail by ID
+DELETE {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/00000000-0000-0000-0000-000000000000
 Accept: application/json
 
 ###
+
+### Get bank detail by ID
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+###
+
+### Get bank detail by Account Number
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-account-number/1234567890
+Accept: application/json
+
+###
+
+### Get bank detail by Employee ID
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-employee-id/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+###
+
+### Get bank detail by IBAN
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-iban/TR000000000000000000000000
+Accept: application/json
+
+
+### Get all bank details (paginated list)
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails?page=0&pageSize=10
+Accept: application/json

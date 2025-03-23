@@ -4,6 +4,11 @@ using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Delete
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByAccountNumber;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByEmployeeId;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByIban;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
+using Moongazing.Kernel.Application.Requests;
+using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -46,4 +51,26 @@ public sealed class BankDetailsController : BaseController
         GetBankDetailByEmployeeIdResponse result = await Sender.Send(getBankDetailByEmployeeIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
+    [HttpGet("by-iban/{iban}")]
+    public async Task<IActionResult> GetByIBAN([FromRoute] string iban)
+    {
+        GetBankDetailByIBANQuery getBankDetailByIBANQuery = new() { IBAN = iban };
+        GetBankDetailByIBANResponse result = await Sender.Send(getBankDetailByIBANQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetBankDetailByIdQuery getBankDetailByIdQuery = new() { Id = id };
+        GetBankDetailByIdResponse result = await Sender.Send(getBankDetailByIdQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet]
+    public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+    {
+        GetListBankDetailQuery getListBankDetailQuery = new() { PageRequest = pageRequest };
+        PaginatedResponse<GetListBankDetailResponse> result = await Sender.Send(getListBankDetailQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+
 }

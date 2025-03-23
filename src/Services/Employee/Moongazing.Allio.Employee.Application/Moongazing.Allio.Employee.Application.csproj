@@ -45,10 +45,7 @@
     <Folder Include="Features\Awards\Queries\GetListByEmployee\" />
     <Folder Include="Features\Awards\Rules\" />
     <Folder Include="Features\BankDetails\Constants\" />
-    <Folder Include="Features\BankDetails\Queries\GetById\" />
-    <Folder Include="Features\BankDetails\Queries\GetList\" />
     <Folder Include="Features\BankDetails\Queries\GetListByDynamic\" />
-    <Folder Include="Features\BankDetails\Queries\GetByIban\" />
     <Folder Include="Features\BankDetails\Queries\GetListByBankName\" />
     <Folder Include="Features\BankDetails\Queries\GetListByCurrency\" />
     <Folder Include="Features\Benefits\Commands\Create\" />
