@@ -7,6 +7,9 @@ using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByEm
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByIban;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByBankName;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByCurrency;
+using Moongazing.Allio.Employee.Domain.Enums;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Shared.Controller;
@@ -72,5 +75,18 @@ public sealed class BankDetailsController : BaseController
         PaginatedResponse<GetListBankDetailResponse> result = await Sender.Send(getListBankDetailQuery).ConfigureAwait(false);
         return Ok(result);
     }
-
+    [HttpGet("by-bank-name/{bankName}")]
+    public async Task<IActionResult> GetListByBankName([FromQuery] PageRequest pageRequest, string bankName)
+    {
+        GetListBankDetailByBankNameQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, BankName = bankName };
+        PaginatedResponse<GetListBankDetailByBankNameResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-currecny/{currency}")]
+    public async Task<IActionResult> GetListByCurrency([FromQuery] PageRequest pageRequest, Currency currency)
+    {
+        GetListBankDetailByCurrencyQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, Currency = currency };
+        PaginatedResponse<GetListBankDetailByCurrencyResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
 }
