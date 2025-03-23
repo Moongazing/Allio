@@ -1,4 +1,5 @@
 ﻿using Moongazing.Allio.Employee.Application.Repositories;
+using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Rules;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Types;
 using System;
@@ -27,4 +28,14 @@ public class BankDetailBusinessRules : BaseBusinessRules
             throw new BusinessException("IBAN should be unique");
         }
     }
+
+    public void EnsureBankDetailExists(BankDetailEntity? bankDetail)
+    {
+        if (bankDetail == null)
+        {
+            throw new BusinessException("Bank Detail not found");
+        }
+    }
+
+
 }

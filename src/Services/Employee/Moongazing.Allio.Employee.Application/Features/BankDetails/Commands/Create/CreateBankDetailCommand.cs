@@ -44,6 +44,7 @@ public class CreateBankDetailCommand : IRequest<CreateBankDetailResponse>,
         public async Task<CreateBankDetailResponse> Handle(CreateBankDetailCommand request, CancellationToken cancellationToken)
         {
             await employeeBusinessRules.EnsureEmployeeExistsAsync(request.EmployeeId);
+
             await bankDetailBusinessRules.EnsureUniqueIBAN(request.IBAN);
 
             BankDetailEntity? bankDetail = request.Adapt<BankDetailEntity>();
