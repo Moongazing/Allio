@@ -44,7 +44,6 @@
     <Folder Include="Features\Awards\Queries\GetListByDate\" />
     <Folder Include="Features\Awards\Queries\GetListByEmployee\" />
     <Folder Include="Features\Awards\Rules\" />
-    <Folder Include="Features\BankDetails\Commands\Update\" />
     <Folder Include="Features\BankDetails\Constants\" />
     <Folder Include="Features\BankDetails\Queries\GetById\" />
     <Folder Include="Features\BankDetails\Queries\GetList\" />
