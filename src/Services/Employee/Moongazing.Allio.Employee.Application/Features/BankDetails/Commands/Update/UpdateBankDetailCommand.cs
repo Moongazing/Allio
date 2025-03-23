@@ -9,11 +9,6 @@ using Moongazing.Kernel.Application.Pipelines.Caching;
 using Moongazing.Kernel.Application.Pipelines.Logging;
 using Moongazing.Kernel.Application.Pipelines.Performance;
 using Moongazing.Kernel.Application.Pipelines.Transaction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
 
@@ -50,14 +45,23 @@ public class UpdateBankDetailCommand:IRequest<UpdateBankDetailResponse>,
         public async Task<UpdateBankDetailResponse> Handle(UpdateBankDetailCommand request, CancellationToken cancellationToken)
         {
             await employeeBusinessRules.EnsureEmployeeExistsAsync(request.EmployeeId);
+
             await bankDetailBusinessRules.EnsureUniqueIBAN(request.IBAN);
+
+            await bankDetailBusinessRules.EnsureAccountNumberExists(request.AccountNumber);
+
             BankDetailEntity? bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.Id == request.Id,
                                                                                cancellationToken: cancellationToken);
             bankDetailBusinessRules.EnsureBankDetailExists(bankDetail);
+
             bankDetail = request.Adapt(bankDetail);
+
             bankDetail!.Currency = Enum.Parse<Currency>(request.Currency);
+
             var result = await bankDetailRepository.UpdateAsync(bankDetail, cancellationToken);
+
             UpdateBankDetailResponse response = result.Adapt<UpdateBankDetailResponse>();
+
             return response;
         }
     }

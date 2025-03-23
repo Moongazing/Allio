@@ -2,6 +2,8 @@
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByAccountNumber;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByEmployeeId;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -17,9 +19,10 @@ public sealed class BankDetailsController : BaseController
         CreateBankDetailResponse result = await Sender.Send(createBankDetailCommand).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpDelete]
-    public async Task<IActionResult> Delete([FromBody] DeleteBankDetailCommand deleteBankDetailCommand)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
+        DeleteBankDetailCommand deleteBankDetailCommand = new() { Id = id };
         DeleteBankDetailResponse result = await Sender.Send(deleteBankDetailCommand).ConfigureAwait(false);
         return Ok(result);
     }
@@ -27,6 +30,20 @@ public sealed class BankDetailsController : BaseController
     public async Task<IActionResult> Update([FromBody] UpdateBankDetailCommand updateBankDetailCommand)
     {
         UpdateBankDetailResponse result = await Sender.Send(updateBankDetailCommand).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-account-number/{accountNumber}")]
+    public async Task<IActionResult> GetByAccountNumber([FromRoute] string accountNumber)
+    {
+        GetBankDetailByAccountNumberQuery getBankDetailByAccountNumberQuery = new() { AccountNumber = accountNumber };
+        GetBankDetailByAccountNumberResponse result = await Sender.Send(getBankDetailByAccountNumberQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-employee-id/{employeeId}")]
+    public async Task<IActionResult> GetByEmployeeId([FromRoute] Guid employeeId)
+    {
+        GetBankDetailByEmployeeIdQuery getBankDetailByEmployeeIdQuery = new() { EmployeeId = employeeId };
+        GetBankDetailByEmployeeIdResponse result = await Sender.Send(getBankDetailByEmployeeIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
 }

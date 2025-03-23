@@ -22,7 +22,7 @@ public class BankDetailBusinessRules : BaseBusinessRules
     public async Task EnsureUniqueIBAN(string iban)
     {
         iban = iban.ToLower();
-        var bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.IBAN.ToLower() == iban);
+        var bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.IBAN.ToLower() == iban, withDeleted: false);
         if (bankDetail != null)
         {
             throw new BusinessException("IBAN should be unique");
@@ -34,6 +34,14 @@ public class BankDetailBusinessRules : BaseBusinessRules
         if (bankDetail == null)
         {
             throw new BusinessException("Bank Detail not found");
+        }
+    }
+    public async Task EnsureAccountNumberExists(string accountNumber)
+    {
+        var bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.AccountNumber == accountNumber, withDeleted: false);
+        if (bankDetail != null)
+        {
+            throw new BusinessException("Account Number should be unique");
         }
     }
 

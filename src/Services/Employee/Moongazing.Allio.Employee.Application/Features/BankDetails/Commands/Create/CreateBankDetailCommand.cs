@@ -47,6 +47,9 @@ public class CreateBankDetailCommand : IRequest<CreateBankDetailResponse>,
 
             await bankDetailBusinessRules.EnsureUniqueIBAN(request.IBAN);
 
+            await bankDetailBusinessRules.EnsureAccountNumberExists(request.AccountNumber);
+
+
             BankDetailEntity? bankDetail = request.Adapt<BankDetailEntity>();
 
             bankDetail.Currency = Enum.Parse<Currency>(request.Currency);
