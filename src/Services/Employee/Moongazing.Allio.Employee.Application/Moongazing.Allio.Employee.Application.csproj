@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Features\AdvanceRequests\Commands\Create\" />
     <Folder Include="Features\AdvanceRequests\Commands\Delete\" />
-    <Folder Include="Features\AdvanceRequests\Commands\ChangeStatus\" />
     <Folder Include="Features\AdvanceRequests\Commands\Update\" />
     <Folder Include="Features\AdvanceRequests\Constants\" />
     <Folder Include="Features\AdvanceRequests\Queries\GetById\" />
@@ -44,7 +43,6 @@
     <Folder Include="Features\Awards\Queries\GetListByDate\" />
     <Folder Include="Features\Awards\Queries\GetListByEmployee\" />
     <Folder Include="Features\Awards\Rules\" />
-    <Folder Include="Features\BankDetails\Constants\" />
     <Folder Include="Features\Benefits\Commands\Create\" />
     <Folder Include="Features\Benefits\Commands\Delete\" />
     <Folder Include="Features\Benefits\Commands\Update\" />

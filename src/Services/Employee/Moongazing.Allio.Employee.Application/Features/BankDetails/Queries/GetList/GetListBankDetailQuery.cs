@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using MapsterMapper;
 using MediatR;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
 using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Pipelines.Caching;
@@ -23,7 +24,7 @@ public class GetListBankDetailQuery : IRequest<PaginatedResponse<GetListBankDeta
     public PageRequest PageRequest { get; set; } = default!;
     public string CacheKey => $"{GetType().Name}({PageRequest.PageIndex}-{PageRequest.PageSize})";
     public bool BypassCache { get; }
-    public string? CacheGroupKey => "Employee_BankDetails";
+    public string? CacheGroupKey => BankDetailConstants.BankDetailCacheKey;
     public TimeSpan? SlidingExpiration { get; }
     public int Interval => 15;
 

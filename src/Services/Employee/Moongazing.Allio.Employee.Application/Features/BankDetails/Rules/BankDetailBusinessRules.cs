@@ -1,4 +1,5 @@
-﻿using Moongazing.Allio.Employee.Application.Repositories;
+﻿using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
+using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Rules;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Types;
@@ -25,7 +26,7 @@ public class BankDetailBusinessRules : BaseBusinessRules
         var bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.IBAN.ToLower() == iban, withDeleted: false);
         if (bankDetail != null)
         {
-            throw new BusinessException("IBAN should be unique");
+            throw new BusinessException(BankDetailConstants.IBANShouldBeUnique);
         }
     }
 
@@ -33,7 +34,7 @@ public class BankDetailBusinessRules : BaseBusinessRules
     {
         if (bankDetail == null)
         {
-            throw new BusinessException("Bank Detail not found");
+            throw new BusinessException(BankDetailConstants.BankDetailNotFound);
         }
     }
     public async Task EnsureAccountNumberExists(string accountNumber)
@@ -41,7 +42,7 @@ public class BankDetailBusinessRules : BaseBusinessRules
         var bankDetail = await bankDetailRepository.GetAsync(predicate: x => x.AccountNumber == accountNumber, withDeleted: false);
         if (bankDetail != null)
         {
-            throw new BusinessException("Account Number should be unique");
+            throw new BusinessException(BankDetailConstants.AccountNumberShouldBeUnique);
         }
     }
 

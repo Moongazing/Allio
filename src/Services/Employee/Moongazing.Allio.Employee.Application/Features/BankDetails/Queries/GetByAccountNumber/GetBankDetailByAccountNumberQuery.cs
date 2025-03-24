@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using MapsterMapper;
 using MediatR;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Rules;
 using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
@@ -22,7 +23,7 @@ public class GetBankDetailByAccountNumberQuery : IRequest<GetBankDetailByAccount
     public string AccountNumber { get; set; } = default!;
     public string CacheKey => $"{GetType().Name}({AccountNumber})";
     public bool BypassCache { get; }
-    public string? CacheGroupKey => "Employee_BankDetails";
+    public string? CacheGroupKey => BankDetailConstants.BankDetailCacheKey;
     public TimeSpan? SlidingExpiration { get; }
     public int Interval => 15;
 

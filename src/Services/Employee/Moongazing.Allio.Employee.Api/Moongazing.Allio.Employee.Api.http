@@ -59,7 +59,48 @@ Accept: application/json
 GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-iban/TR000000000000000000000000
 Accept: application/json
 
+###
 
 ### Get all bank details (paginated list)
 GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails?page=0&pageSize=10
 Accept: application/json
+
+###
+
+### Get bank details by Bank Name (paginated)
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-bank-name/Ziraat?page=0&pageSize=10
+Accept: application/json
+
+###
+
+### Get bank details by Currency (paginated)
+GET {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/by-currecny/TRY?page=0&pageSize=10
+Accept: application/json
+
+###
+
+### Get bank details by Dynamic Filter (paginated)
+POST {{Moongazing.Allio.Employee.Api_HostAddress}}/api/allio/bankdetails/filter?page=0&pageSize=10
+Content-Type: application/json
+Accept: application/json
+
+{
+  "filters": [
+    {
+      "field": "bankName",
+      "operator": "Contains",
+      "value": "Ziraat"
+    },
+    {
+      "field": "currency",
+      "operator": "Equals",
+      "value": "TRY"
+    }
+  ],
+  "sorts": [
+    {
+      "field": "bankName",
+      "direction": "ASC"
+    }
+  ]
+}

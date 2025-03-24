@@ -84,14 +84,14 @@ public sealed class BankDetailsController : BaseController
         PaginatedResponse<GetListBankDetailByBankNameResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-currecny/{currency}")]
+    [HttpGet("by-currency/{currency}")]
     public async Task<IActionResult> GetListByCurrency([FromQuery] PageRequest pageRequest, Currency currency)
     {
         GetListBankDetailByCurrencyQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, Currency = currency };
         PaginatedResponse<GetListBankDetailByCurrencyResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpPost("search")]
+    [HttpPost("filter")]
     public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery)
     {
         GetListBankDetailByDynamicQuery getListBankDetailByDynamicQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery! };

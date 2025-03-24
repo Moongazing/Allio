@@ -8,3 +8,10 @@ public enum AdvanceRequestReason
     Travel = 3,
     Other = 4
 }
+
+public enum PromotionStatus
+{
+    Pending = 0,
+    Approved = 1,
+    Rejected = 2
+}

@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using MapsterMapper;
 using MediatR;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Rules;
 using Moongazing.Allio.Employee.Application.Features.Employees.Rules;
 using Moongazing.Allio.Employee.Application.Repositories;
@@ -22,7 +23,7 @@ public class CreateBankDetailCommand : IRequest<CreateBankDetailResponse>,
     public string Currency { get; set; } = default!;
     public Guid EmployeeId { get; set; }
     public bool BypassCache { get; }
-    public string? CacheGroupKey => "Employee_BankDetails";
+    public string? CacheGroupKey => BankDetailConstants.BankDetailCacheKey;
     public string? CacheKey => null;
     public int Interval => 15;
 
