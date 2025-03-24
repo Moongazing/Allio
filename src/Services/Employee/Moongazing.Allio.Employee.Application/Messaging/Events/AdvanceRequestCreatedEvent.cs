@@ -3,10 +3,10 @@ using Moongazing.Kernel.Messaging.Events;
 
 namespace Moongazing.Allio.Employee.Application.Messaging.Events;
 
-public class AdvanceRequestCreatedEvent:IEvent
+public class AdvanceRequestCreatedEvent : IEvent
 {
-    public Guid Id { get; } = Guid.NewGuid();  
-    public DateTime CreatedAt { get; } = DateTime.UtcNow;  
+    public Guid Id { get; } = Guid.NewGuid();
+    public DateTime CreatedAt { get; } = DateTime.UtcNow;
     public Guid EmployeeId { get; set; }
     public decimal RequestedAmount { get; set; }
     public decimal ApprovedAmount { get; set; }
