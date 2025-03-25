@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net.Http;
 
 namespace Moongazing.Kernel.Shared.Controller;
 

@@ -1,5 +1,4 @@
 ﻿using Mapster;
-using MapsterMapper;
 using MediatR;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
 using Moongazing.Allio.Employee.Application.Repositories;
@@ -10,11 +9,6 @@ using Moongazing.Kernel.Application.Pipelines.Performance;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Persistence.Paging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
 

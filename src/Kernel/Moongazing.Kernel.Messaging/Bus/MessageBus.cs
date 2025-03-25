@@ -1,8 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
-using MassTransit;
+﻿using MassTransit;
 using Microsoft.Extensions.Logging;
-using Moongazing.Kernel.Messaging.Events;
 
 namespace Moongazing.Kernel.Messaging.Bus;
 

@@ -1,5 +1,4 @@
 ﻿using Mapster;
-using MapsterMapper;
 using MediatR;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Constants;
 using Moongazing.Allio.Employee.Application.Features.BankDetails.Rules;

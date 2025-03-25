@@ -1,5 +1,4 @@
-﻿using Moongazing.Allio.Employee.Domain.Enums;
-using Moongazing.Kernel.Messaging.Events;
+﻿using Moongazing.Kernel.Messaging.Events;
 
 namespace Moongazing.Allio.Employee.Application.Messaging.Events;
 

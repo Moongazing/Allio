@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Moongazing.Allio.Employee.Api;
+using Moongazing.Allio.Employee.Application;
+using Moongazing.Allio.Employee.Persistence;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Extensions;
+using Moongazing.Kernel.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
+using Moongazing.Kernel.Mailing;
+using Moongazing.Kernel.Persistence.MigrationApplier;
 using Polly;
 using StackExchange.Redis;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Text.Json.Serialization;
-using Moongazing.Kernel.Mailing;
-using Moongazing.Kernel.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
-using Moongazing.Allio.Employee.Application;
-using Moongazing.Allio.Employee.Persistence;
-using Moongazing.Allio.Employee.Api;
-using Moongazing.Kernel.Persistence.MigrationApplier;
 
 var builder = WebApplication.CreateBuilder(args);
 

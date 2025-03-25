@@ -1,20 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Create;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Delete;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByAccountNumber;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByEmployeeId;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetByIban;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByBankName;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByCurrency;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByDynamic;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Create;
-using Moongazing.Allio.Employee.Domain.Enums;
-using Moongazing.Kernel.Application.Requests;
-using Moongazing.Kernel.Application.Responses;
-using Moongazing.Kernel.Persistence.Dynamic;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -30,5 +16,12 @@ public sealed class BenefitsController : BaseController
         CreateBenefitResponse result = await Sender.Send(createBenefitCommand).ConfigureAwait(false);
         return Ok(result);
     }
-    
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] Guid id)
+    {
+        DeleteBenefitCommand deleteBenefitCommand = new() { Id = id };
+        DeleteBenefitResponse result = await Sender.Send(deleteBenefitCommand).ConfigureAwait(false);
+        return Ok(result);
+    }
+
 }

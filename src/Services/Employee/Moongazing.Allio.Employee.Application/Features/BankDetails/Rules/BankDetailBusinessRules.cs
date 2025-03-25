@@ -3,11 +3,6 @@ using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Rules;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.BankDetails.Rules;
 

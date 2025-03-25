@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moongazing.Allio.Employee.Application.Repositories;
+using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Rules;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.Benefits.Rules;
 
@@ -47,6 +43,21 @@ public class BenefitBusinessRules : BaseBusinessRules
             throw new BusinessException("An employee cannot have more than 5 benefits.");
     }
 
+    public async Task EnsureBenefitExists(Guid benefitId)
+    {
+        var exists = await benefitRepository.AnyAsync(predicate: x => x.Id == benefitId, withDeleted: false);
+        if (!exists)
+        {
+            throw new BusinessException("Benefit does not exist");
+        }
+    }
+    public void EnsureBenefitExists(BenefitEntity? benefit)
+    {
+        if (benefit is null)
+        {
+            throw new BusinessException("Benefit does not exist");
+        }
+    }
 
 
 }
