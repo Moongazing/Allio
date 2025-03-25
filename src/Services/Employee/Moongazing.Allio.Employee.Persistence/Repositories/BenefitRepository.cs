@@ -2,6 +2,7 @@
 using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Allio.Employee.Persistence.Contexts;
+using Moongazing.Kernel.Persistence.Paging;
 using Moongazing.Kernel.Persistence.Repositories;
 
 namespace Moongazing.Allio.Employee.Persistence.Repositories;
@@ -18,5 +19,21 @@ public class BenefitRepository : EfRepositoryBase<BenefitEntity, Guid, EmployeeD
             .Where(x => x.EmployeeId == employeeId && !x.DeletedDate.HasValue)
             .SumAsync(x => x.Value, cancellationToken);
     }
+    public async Task<IPaginate<BenefitLimitApproachingDto>> GetEmployeesWithHighBenefitUsageAsync(decimal threshold, int pageIndex, int pageSize, CancellationToken cancellationToken = default)
+    {
+        var query = Context.Benefits
+            .Where(x => !x.DeletedDate.HasValue)
+            .GroupBy(x => x.EmployeeId)
+            .Select(g => new BenefitLimitApproachingDto
+            {
+                EmployeeId = g.Key,
+                TotalBenefitValue = g.Sum(x => x.Value)
+            })
+            .Where(x => x.TotalBenefitValue >= threshold)
+            .OrderByDescending(x => x.TotalBenefitValue);
+
+        return await query.ToPaginateAsync(pageIndex, pageSize, cancellationToken);
+    }
+
 
 }

@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Update;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetById;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -23,5 +27,19 @@ public sealed class BenefitsController : BaseController
         DeleteBenefitResponse result = await Sender.Send(deleteBenefitCommand).ConfigureAwait(false);
         return Ok(result);
     }
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] UpdateBenefitCommand updateBenefitCommand)
+    {
+        UpdateBenefitResponse result = await Sender.Send(updateBenefitCommand).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetBenefitByIdQuery getBenefitByIdQuery = new() { Id = id };
+        GetBenefitByIdResponse result = await Sender.Send(getBenefitByIdQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+
 
 }

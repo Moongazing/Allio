@@ -44,12 +44,12 @@
     <Folder Include="Features\Awards\Queries\GetListByEmployee\" />
     <Folder Include="Features\Awards\Rules\" />
     <Folder Include="Features\Benefits\Constants\" />
-    <Folder Include="Features\Benefits\Queries\GetById\" />
     <Folder Include="Features\Benefits\Queries\GetListByDynamic\" />
     <Folder Include="Features\Benefits\Queries\GetList\" />
     <Folder Include="Features\Benefits\Queries\GetListByBenefit\" />
     <Folder Include="Features\Benefits\Queries\GetListByEmployee\" />
     <Folder Include="Features\Benefits\Queries\GetListByValue\" />
+    <Folder Include="Features\Benefits\Queries\GetListByEmployeesApproachingBenefitLimit\" />
     <Folder Include="Features\Branches\Commands\Create\" />
     <Folder Include="Features\Branches\Commands\Delete\" />
     <Folder Include="Features\Branches\Commands\Update\" />
