@@ -45,7 +45,6 @@
     <Folder Include="Features\Awards\Rules\" />
     <Folder Include="Features\Benefits\Constants\" />
     <Folder Include="Features\Benefits\Queries\GetListByDynamic\" />
-    <Folder Include="Features\Benefits\Queries\GetList\" />
     <Folder Include="Features\Benefits\Queries\GetListByBenefit\" />
     <Folder Include="Features\Benefits\Queries\GetListByEmployee\" />
     <Folder Include="Features\Benefits\Queries\GetListByValue\" />
