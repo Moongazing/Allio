@@ -8,6 +8,9 @@ public interface IBenefitRepository : IAsyncRepository<BenefitEntity, Guid>, IRe
 {
     Task<decimal> GetTotalBenefitValueAsync(Guid employeeId, CancellationToken cancellationToken = default);
     Task<IPaginate<BenefitLimitApproachingDto>> GetEmployeesWithHighBenefitUsageAsync(decimal threshold, int pageIndex, int pageSize, CancellationToken cancellationToken);
+    Task<IPaginate<BenefitCountApproachingDto>> GetEmployeesApproachingBenefitCountLimitAsync(
+    int threshold, int pageIndex, int pageSize, CancellationToken cancellationToken = default);
+
 }
 
 
@@ -17,3 +20,8 @@ public class BenefitLimitApproachingDto
     public decimal TotalBenefitValue { get; set; }
 }
 
+public class BenefitCountApproachingDto
+{
+    public Guid EmployeeId { get; set; }
+    public int BenefitCount { get; set; }
+}

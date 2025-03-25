@@ -35,5 +35,22 @@ public class BenefitRepository : EfRepositoryBase<BenefitEntity, Guid, EmployeeD
         return await query.ToPaginateAsync(pageIndex, pageSize, cancellationToken);
     }
 
+    public async Task<IPaginate<BenefitCountApproachingDto>> GetEmployeesApproachingBenefitCountLimitAsync(
+    int threshold, int pageIndex, int pageSize, CancellationToken cancellationToken = default)
+    {
+        var query = Context.Benefits
+            .Where(x => !x.DeletedDate.HasValue)
+            .GroupBy(x => x.EmployeeId)
+            .Select(g => new BenefitCountApproachingDto
+            {
+                EmployeeId = g.Key,
+                BenefitCount = g.Count()
+            })
+            .Where(x => x.BenefitCount >= threshold)
+            .OrderByDescending(x => x.BenefitCount);
+
+        return await query.ToPaginateAsync(pageIndex, pageSize, cancellationToken);
+    }
+
 
 }
