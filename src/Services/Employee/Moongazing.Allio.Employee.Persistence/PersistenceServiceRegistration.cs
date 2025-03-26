@@ -22,7 +22,7 @@ public static class PersistenceServiceRegistration
                         TimeSpan.FromSeconds(30),
         ]);
 
-        services.AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Allio_Employe")));
+        services.AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Allio_Employee")));
 
 
 

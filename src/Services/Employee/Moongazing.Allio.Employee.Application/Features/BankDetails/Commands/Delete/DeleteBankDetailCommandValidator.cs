@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 
-public class DeleteBankDetailCommandValidator:AbstractValidator<DeleteBankDetailCommand>
+namespace Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Delete;
+
+public class DeleteBankDetailCommandValidator : AbstractValidator<DeleteBankDetailCommand>
 {
     public DeleteBankDetailCommandValidator()
     {

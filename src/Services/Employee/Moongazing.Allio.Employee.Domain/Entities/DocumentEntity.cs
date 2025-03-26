@@ -1,4 +1,5 @@
-﻿using Moongazing.Kernel.Persistence.Repositories;
+﻿using Moongazing.Allio.Employee.Domain.Enums;
+using Moongazing.Kernel.Persistence.Repositories;
 
 namespace Moongazing.Allio.Employee.Domain.Entities;
 
@@ -10,6 +11,7 @@ public class DocumentEntity : Entity<Guid>
     public Guid EmployeeId { get; set; }
     public DocumentType Type { get; set; }
     public virtual EmployeeEntity Employee { get; set; } = default!;
+    public virtual ExpenseRecordEntity ExpenseRecord { get; set; } = default!;
 
     public DocumentEntity()
     {

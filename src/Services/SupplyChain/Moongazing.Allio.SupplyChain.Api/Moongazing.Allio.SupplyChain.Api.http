@@ -1,6 +1,0 @@
-@Moongazing.Allio.SupplyChain.Api_HostAddress = http://localhost:5189
-
-GET {{Moongazing.Allio.SupplyChain.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

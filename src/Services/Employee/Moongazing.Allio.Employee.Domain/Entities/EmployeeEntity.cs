@@ -20,19 +20,19 @@ public class EmployeeEntity : Entity<Guid>
     public Guid ManagerId { get; set; }
     public Guid BranchId { get; set; }
     public Guid BankId { get; set; }
-    public Guid? TerminationId { get; set; }
     public decimal GrossSalary { get; set; }
     public decimal NetSalary { get; set; }
     public decimal TaxAmount { get; set; }
     public decimal Bonus { get; set; }
 
 
-    public virtual TerminationEntity? TerminationDetails { get; set; }
-    public virtual BankDetailEntity BankDetail { get; set; } = default!;
+    
     public virtual BranchEntity Branch { get; set; } = default!;
     public virtual EmployeeEntity? Manager { get; set; }
     public virtual ProfessionEntity Profession { get; set; } = default!;
     public virtual DepartmentEntity Department { get; set; } = default!;
+    public virtual ICollection<TerminationEntity> Terminations { get; set; } = new HashSet<TerminationEntity>();
+    public virtual ICollection<BankDetailEntity> BankDetails { get; set; } = new HashSet<BankDetailEntity>();
     public virtual ICollection<LeaveRequestEntity> LeaveRequests { get; set; } = new HashSet<LeaveRequestEntity>();
     public virtual ICollection<AdvanceRequestEntity> AdvanceRequests { get; set; } = new HashSet<AdvanceRequestEntity>();
     public virtual ICollection<ExpenseRecordEntity> ExpenseRecords { get; set; } = new HashSet<ExpenseRecordEntity>();
