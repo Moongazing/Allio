@@ -7,6 +7,8 @@ using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetList;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByBenefit;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployee;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Shared.Controller;
@@ -51,5 +53,21 @@ public sealed class BenefitsController : BaseController
         PaginatedResponse<GetListBenefitResponse> result = await Sender.Send(getListBenefitQuery).ConfigureAwait(false);
         return Ok(result);
     }
+    [HttpGet("by-benefit/{benefit}")]
+    public async Task<IActionResult> GetListByBenefit([FromQuery] PageRequest pageRequest, [FromRoute] string benefit)
+    {
+        GetListBenefitByNameQuery getListByBenefitQuery = new() { PageRequest = pageRequest, BenefitName = benefit };
+        PaginatedResponse<GetListBenefitByNameResponse> result = await Sender.Send(getListByBenefitQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-employee/{employeeId}")]
+    public async Task<IActionResult> GetListByEmployee([FromQuery] PageRequest pageRequest, [FromRoute] Guid employeeId)
+    {
+        GetListBenefitByEmployeeIdQuery getListBenefitByEmployeeIdQuery = new() { PageRequest = pageRequest, EmployeeId = employeeId };
+        PaginatedResponse<GetListBenefitByEmployeeIdResponse> result = await Sender.Send(getListBenefitByEmployeeIdQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+
+
 
 }

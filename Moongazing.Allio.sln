@@ -103,6 +103,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moongazing.Allio.Calendar.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moongazing.Allio.Calendar.Api", "src\Services\Calendar\Moongazing.Allio.Calendar.Api\Moongazing.Allio.Calendar.Api.csproj", "{1947E6B1-99B3-4E11-8A53-42EAC464E790}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{B2E1679F-D534-433E-B2FF-4C4865FB6923}"
+	ProjectSection(SolutionItems) = preProject
+		kafka.yml = kafka.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
