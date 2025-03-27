@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Commands.Update;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetById;
-using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetList;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Update;
@@ -9,6 +6,8 @@ using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetList;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByBenefit;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployee;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployeesApproachingBenefitCount;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployeesApproachingBenefitLimit;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Shared.Controller;
@@ -65,6 +64,29 @@ public sealed class BenefitsController : BaseController
     {
         GetListBenefitByEmployeeIdQuery getListBenefitByEmployeeIdQuery = new() { PageRequest = pageRequest, EmployeeId = employeeId };
         PaginatedResponse<GetListBenefitByEmployeeIdResponse> result = await Sender.Send(getListBenefitByEmployeeIdQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("approaching-count")]
+    public async Task<IActionResult> GetListByApproachingCount([FromQuery] PageRequest pageRequest, [FromQuery] int threshold)
+    {
+        GetListBenefitByApproachingCountQuery query = new()
+        {
+            PageRequest = pageRequest,
+            Threshold = threshold
+        };
+        PaginatedResponse<GetListBenefitByApproachingCountResponse> result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("approaching-limit")]
+    public async Task<IActionResult> GetListByApproachingLimit([FromQuery] PageRequest pageRequest, [FromQuery] decimal threshold)
+    {
+        GetListBenefitByApproachingLimitQuery query = new()
+        {
+            PageRequest = pageRequest,
+            Threshold = threshold
+        };
+
+        PaginatedResponse<GetListBenefitByApproachingLimitResponse> result = await Sender.Send(query).ConfigureAwait(false);
         return Ok(result);
     }
 

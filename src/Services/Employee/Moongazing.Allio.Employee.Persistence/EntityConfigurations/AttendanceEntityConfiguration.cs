@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Moongazing.Allio.Employee.Domain.Entities;
-using Moongazing.Allio.Employee.Domain.Enums;
 
-namespace Moongazing.Allio.Employee.Persistence.Configurations;
+namespace Moongazing.Allio.Employee.Persistence.EntityConfigurations;
 
 public class AttendanceEntityConfiguration : IEntityTypeConfiguration<AttendanceEntity>
 {

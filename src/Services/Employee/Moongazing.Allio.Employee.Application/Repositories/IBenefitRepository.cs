@@ -1,4 +1,5 @@
-﻿using Moongazing.Allio.Employee.Domain.Entities;
+﻿using Moongazing.Allio.Employee.Application.Features.Benefits.DataTransferObjects;
+using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Persistence.Paging;
 using Moongazing.Kernel.Persistence.Repositories;
 
@@ -14,14 +15,3 @@ public interface IBenefitRepository : IAsyncRepository<BenefitEntity, Guid>, IRe
 }
 
 
-public class BenefitLimitApproachingDto
-{
-    public Guid EmployeeId { get; set; }
-    public decimal TotalBenefitValue { get; set; }
-}
-
-public class BenefitCountApproachingDto
-{
-    public Guid EmployeeId { get; set; }
-    public int BenefitCount { get; set; }
-}

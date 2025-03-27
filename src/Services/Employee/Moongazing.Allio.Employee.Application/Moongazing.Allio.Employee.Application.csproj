@@ -46,8 +46,6 @@
     <Folder Include="Features\Benefits\Constants\" />
     <Folder Include="Features\Benefits\Queries\GetListByDynamic\" />
     <Folder Include="Features\Benefits\Queries\GetListByValue\" />
-    <Folder Include="Features\Benefits\Queries\GetListByEmployeesApproachingBenefitLimit\" />
-    <Folder Include="Features\Benefits\Queries\GetListByEmployeesApproachingBenefitCount\" />
     <Folder Include="Features\Branches\Commands\Create\" />
     <Folder Include="Features\Branches\Commands\Delete\" />
     <Folder Include="Features\Branches\Commands\Update\" />

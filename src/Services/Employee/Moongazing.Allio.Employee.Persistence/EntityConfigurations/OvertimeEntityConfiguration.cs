@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Moongazing.Allio.Employee.Domain.Entities;
 
-namespace Moongazing.Allio.Employee.Persistence.Configurations;
+namespace Moongazing.Allio.Employee.Persistence.EntityConfigurations;
 
 public class OvertimeEntityConfiguration : IEntityTypeConfiguration<OvertimeEntity>
 {

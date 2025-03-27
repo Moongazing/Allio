@@ -6,7 +6,6 @@ using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Pipelines.Caching;
 using Moongazing.Kernel.Application.Pipelines.Logging;
 using Moongazing.Kernel.Application.Pipelines.Performance;
-using Moongazing.Kernel.Application.Requests;
 
 namespace Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetById;
 
