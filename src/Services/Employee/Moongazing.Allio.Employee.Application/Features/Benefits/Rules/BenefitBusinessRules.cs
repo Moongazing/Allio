@@ -58,6 +58,18 @@ public class BenefitBusinessRules : BaseBusinessRules
             throw new BusinessException("Benefit does not exist");
         }
     }
+    public void EnsureBenefitValueRangeIsValid(decimal minValue, decimal maxValue)
+    {
+        if (minValue < 0 || maxValue < 0)
+        {
+            throw new BusinessException("Benefit value range cannot be negative.");
+        }
+
+        if (minValue > maxValue)
+        {
+            throw new BusinessException("Minimum value cannot exceed maximum value.");
+        }
+    }
 
 
 }

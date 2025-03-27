@@ -1,15 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Moongazing.Allio.Employee.Application.Features.BankDetails.Queries.GetListByDynamic;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetList;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByBenefit;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByBetweenValues;
+using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByDynamic;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployee;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployeesApproachingBenefitCount;
 using Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByEmployeesApproachingBenefitLimit;
 using Moongazing.Kernel.Application.Requests;
 using Moongazing.Kernel.Application.Responses;
+using Moongazing.Kernel.Persistence.Dynamic;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -87,6 +91,29 @@ public sealed class BenefitsController : BaseController
         };
 
         PaginatedResponse<GetListBenefitByApproachingLimitResponse> result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+
+    [HttpGet("between-values")]
+    public async Task<IActionResult> GetListByBetweenValues([FromQuery] PageRequest pageRequest, [FromQuery] decimal minValue, [FromQuery] decimal maxValue,
+                                                            [FromQuery] bool includeValues = true)
+    {
+        var query = new GetListBenefitByBetweenValuesQuery
+        {
+            PageRequest = pageRequest,
+            MinValue = minValue,
+            MaxValue = maxValue,
+            IncludeValues = includeValues
+        };
+
+        var result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpPost("filter")]
+    public async Task<IActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] DynamicQuery dynamicQuery)
+    {
+        GetListBenefitByDynamicQuery getListBenefitByDynamicQuery = new() { PageRequest = pageRequest, DynamicQuery = dynamicQuery! };
+        PaginatedResponse<GetListBenefitByDynamicResponse> result = await Sender.Send(getListBenefitByDynamicQuery).ConfigureAwait(false);
         return Ok(result);
     }
 
