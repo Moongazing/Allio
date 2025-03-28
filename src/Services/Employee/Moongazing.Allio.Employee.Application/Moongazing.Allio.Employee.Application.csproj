@@ -56,14 +56,13 @@
     <Folder Include="Features\Branches\Queries\GetByName\" />
     <Folder Include="Features\Branches\Queries\GetListByAddress\" />
     <Folder Include="Features\Branches\Rules\" />
-    <Folder Include="Features\Departments\Commands\Create\" />
     <Folder Include="Features\Departments\Commands\Delete\" />
     <Folder Include="Features\Departments\Commands\Update\" />
     <Folder Include="Features\Departments\Constants\" />
     <Folder Include="Features\Departments\Queries\GetById\" />
     <Folder Include="Features\Departments\Queries\GetListByDynamic\" />
     <Folder Include="Features\Departments\Queries\GetList\" />
-    <Folder Include="Features\Departments\Rules\" />
+    <Folder Include="Features\Departments\Queries\GetByName\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Create\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Delete\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Update\" />
