@@ -56,7 +56,6 @@
     <Folder Include="Features\Branches\Queries\GetByName\" />
     <Folder Include="Features\Branches\Queries\GetListByAddress\" />
     <Folder Include="Features\Branches\Rules\" />
-    <Folder Include="Features\Departments\Commands\Delete\" />
     <Folder Include="Features\Departments\Commands\Update\" />
     <Folder Include="Features\Departments\Constants\" />
     <Folder Include="Features\Departments\Queries\GetById\" />
