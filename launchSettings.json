@@ -1,0 +1,17 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "moongazing.allio.employee.api": "StartDebugging",
+        "moongazing.allio.calendar.api": "StartDebugging",
+        "moongazing.allio.announcement.api": "StartDebugging",
+        "moongazing.allio.finance.api": "StartDebugging",
+        "moongazing.allio.identity.api": "StartDebugging",
+        "moongazing.allio.recruitment.api": "StartDebugging",
+        "moongazing.allio.workflow.api": "StartDebugging"
+      }
+    }
+  }
+}

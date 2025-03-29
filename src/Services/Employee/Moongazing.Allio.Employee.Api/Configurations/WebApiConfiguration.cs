@@ -1,4 +1,4 @@
-﻿namespace Moongazing.Allio.Employee.Api;
+﻿namespace Moongazing.Allio.Employee.Api.Configurations;
 
 public class WebApiConfiguration
 {

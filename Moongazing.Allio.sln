@@ -108,6 +108,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{B2E167
 		kafka.yml = kafka.yml
 	EndProjectSection
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -258,6 +260,10 @@ Global
 		{1947E6B1-99B3-4E11-8A53-42EAC464E790}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1947E6B1-99B3-4E11-8A53-42EAC464E790}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1947E6B1-99B3-4E11-8A53-42EAC464E790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -309,6 +315,7 @@ Global
 		{20BAE7BF-03A8-4CC7-A449-FE3B45F6011F} = {203DD822-C3D9-49C7-9DCC-DD339632E2A2}
 		{D354533D-B717-4C42-BAD9-11B5378E031D} = {203DD822-C3D9-49C7-9DCC-DD339632E2A2}
 		{1947E6B1-99B3-4E11-8A53-42EAC464E790} = {203DD822-C3D9-49C7-9DCC-DD339632E2A2}
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A} = {B2E1679F-D534-433E-B2FF-4C4865FB6923}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3091F045-E693-4F6A-8A08-B91E898D46EA}

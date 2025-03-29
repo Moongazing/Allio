@@ -1,0 +1,48 @@
+services:
+  moongazing.allio.employee.api:
+    image: ${DOCKER_REGISTRY-}moongazingallioemployeeapi
+    build:
+      context: .
+      dockerfile: src/Services/Employee/Moongazing.Allio.Employee.Api/Dockerfile
+
+  moongazing.allio.calendar.api:
+    image: ${DOCKER_REGISTRY-}moongazingalliocalendarapi
+    build:
+      context: .
+      dockerfile: src/Services/Calendar/Moongazing.Allio.Calendar.Api/Dockerfile
+
+
+  moongazing.allio.announcement.api:
+    image: ${DOCKER_REGISTRY-}moongazingallioannouncementapi
+    build:
+      context: .
+      dockerfile: src/Services/Announcement/Moongazing.Allio.Announcement.Api/Dockerfile
+
+
+  moongazing.allio.finance.api:
+    image: ${DOCKER_REGISTRY-}moongazingalliofinanceapi
+    build:
+      context: .
+      dockerfile: src/Services/Finance/Moongazing.Allio.Finance.Api/Dockerfile
+
+
+  moongazing.allio.identity.api:
+    image: ${DOCKER_REGISTRY-}moongazingallioidentityapi
+    build:
+      context: .
+      dockerfile: src/Services/Identity/Moongazing.Allio.Identity.Api/Dockerfile
+
+
+  moongazing.allio.recruitment.api:
+    image: ${DOCKER_REGISTRY-}moongazingalliorecruitmentapi
+    build:
+      context: .
+      dockerfile: src/Services/Recruitment/Moongazing.Allio.Recruitment.Api/Dockerfile
+
+
+  moongazing.allio.workflow.api:
+    image: ${DOCKER_REGISTRY-}moongazingallioworkflowapi
+    build:
+      context: .
+      dockerfile: src/Services/Workflow/Moongazing.Allio.Workflow.Api/Dockerfile
+

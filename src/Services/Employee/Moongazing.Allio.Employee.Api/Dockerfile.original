@@ -13,15 +13,6 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/Services/Employee/Moongazing.Allio.Employee.Api/Moongazing.Allio.Employee.Api.csproj", "src/Services/Employee/Moongazing.Allio.Employee.Api/"]
-COPY ["src/Kernel/Moongazing.Kernel.CrossCuttingConcerns/Moongazing.Kernel.CrossCuttingConcerns.csproj", "src/Kernel/Moongazing.Kernel.CrossCuttingConcerns/"]
-COPY ["src/Kernel/Moongazing.Kernel.Mailing/Moongazing.Kernel.Mailing.csproj", "src/Kernel/Moongazing.Kernel.Mailing/"]
-COPY ["src/Kernel/Moongazing.Kernel.Persistence/Moongazing.Kernel.Persistence.csproj", "src/Kernel/Moongazing.Kernel.Persistence/"]
-COPY ["src/Kernel/Moongazing.Kernel.Shared/Moongazing.Kernel.Shared.csproj", "src/Kernel/Moongazing.Kernel.Shared/"]
-COPY ["src/Services/Employee/Moongazing.Allio.Employee.Application/Moongazing.Allio.Employee.Application.csproj", "src/Services/Employee/Moongazing.Allio.Employee.Application/"]
-COPY ["src/Kernel/Moongazing.Kernel.Application/Moongazing.Kernel.Application.csproj", "src/Kernel/Moongazing.Kernel.Application/"]
-COPY ["src/Kernel/Moongazing.Kernel.Messaging/Moongazing.Kernel.Messaging.csproj", "src/Kernel/Moongazing.Kernel.Messaging/"]
-COPY ["src/Services/Employee/Moongazing.Allio.Employee.Domain/Moongazing.Allio.Employee.Domain.csproj", "src/Services/Employee/Moongazing.Allio.Employee.Domain/"]
-COPY ["src/Services/Employee/Moongazing.Allio.Employee.Persistence/Moongazing.Allio.Employee.Persistence.csproj", "src/Services/Employee/Moongazing.Allio.Employee.Persistence/"]
 RUN dotnet restore "./src/Services/Employee/Moongazing.Allio.Employee.Api/Moongazing.Allio.Employee.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Services/Employee/Moongazing.Allio.Employee.Api"
