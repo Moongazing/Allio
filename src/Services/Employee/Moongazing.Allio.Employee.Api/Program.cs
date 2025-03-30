@@ -6,6 +6,7 @@ using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Extensions;
 using Moongazing.Kernel.CrossCuttingConcerns.Logging.Serilog.ConfigurationModels;
 using Moongazing.Kernel.Mailing;
 using Moongazing.Kernel.Persistence.MigrationApplier;
+using Moongazing.Kernel.Shared.Configurations;
 using Polly;
 using StackExchange.Redis;
 using Swashbuckle.AspNetCore.SwaggerUI;
