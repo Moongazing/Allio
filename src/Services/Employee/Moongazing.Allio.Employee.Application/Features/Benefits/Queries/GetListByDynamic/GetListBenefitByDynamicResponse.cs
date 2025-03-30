@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByDynamic;
+﻿namespace Moongazing.Allio.Employee.Application.Features.Benefits.Queries.GetListByDynamic;
 
 public class GetListBenefitByDynamicResponse
 {

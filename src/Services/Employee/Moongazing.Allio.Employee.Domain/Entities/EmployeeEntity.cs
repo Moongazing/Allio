@@ -31,6 +31,8 @@ public class EmployeeEntity : Entity<Guid>
     public virtual EmployeeEntity? Manager { get; set; }
     public virtual ProfessionEntity Profession { get; set; } = default!;
     public virtual DepartmentEntity Department { get; set; } = default!;
+    public virtual ICollection<DepartmentEntity> DepartmentManager { get; set; } = new HashSet<DepartmentEntity>();
+
     public virtual ICollection<TerminationEntity> Terminations { get; set; } = new HashSet<TerminationEntity>();
     public virtual ICollection<BankDetailEntity> BankDetails { get; set; } = new HashSet<BankDetailEntity>();
     public virtual ICollection<LeaveRequestEntity> LeaveRequests { get; set; } = new HashSet<LeaveRequestEntity>();

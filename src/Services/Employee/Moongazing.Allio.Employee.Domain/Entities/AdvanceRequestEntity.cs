@@ -6,11 +6,11 @@ namespace Moongazing.Allio.Employee.Domain.Entities;
 public class AdvanceRequestEntity : Entity<Guid>
 {
     public Guid EmployeeId { get; set; }
-    public decimal RequestedAmount { get; set; }
+    public decimal RequestedAmount { get; set; } //max salary %40
     public decimal ApprovedAmount { get; set; }
     public AdvanceRequestReason Reason { get; set; } = default!;
     public bool IsApproved { get; set; } = false;
-    public string? RejecttReason { get; set; }
+    public string? RejectReason { get; set; }
     public DateTime RequestDate { get; set; }
     public DateTime? ApprovalDate { get; set; }
 

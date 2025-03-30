@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Moongazing.Allio.Employee.Api.Configurations;
 using Moongazing.Allio.Employee.Application;
 using Moongazing.Allio.Employee.Persistence;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Extensions;

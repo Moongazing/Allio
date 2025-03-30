@@ -1,25 +1,20 @@
 ﻿using Mapster;
 using MediatR;
-using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Create;
-using Moongazing.Allio.Employee.Application.Features.Benefits.Rules;
 using Moongazing.Allio.Employee.Application.Features.Departments.Rules;
+using Moongazing.Allio.Employee.Application.Features.Employees.Rules;
 using Moongazing.Allio.Employee.Application.Repositories;
 using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Kernel.Application.Pipelines.Caching;
 using Moongazing.Kernel.Application.Pipelines.Logging;
 using Moongazing.Kernel.Application.Pipelines.Performance;
 using Moongazing.Kernel.Application.Pipelines.Transaction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.Departments.Commands.Create;
 
-public class CreateDepartmentCommand:IRequest<CreateDepartmentResponse>, 
+public class CreateDepartmentCommand : IRequest<CreateDepartmentResponse>,
     ILoggableRequest, ICacheRemoverRequest, ITransactionalRequest, IIntervalRequest
 {
+    public Guid DepartmentManagerId { get; set; } = default!;
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
     public bool BypassCache { get; }
@@ -31,15 +26,20 @@ public class CreateDepartmentCommand:IRequest<CreateDepartmentResponse>,
     {
         private readonly IDepartmentRepository departmentRepository;
         private readonly DepartmentBusinessRules departmentBusinessRules;
+        private readonly EmployeeBusinessRules employeeBusinessRules;
 
-        public CreateDepartmentCommandHandler(IDepartmentRepository departmentRepository, DepartmentBusinessRules departmentBusinessRules)
+        public CreateDepartmentCommandHandler(IDepartmentRepository departmentRepository,
+                                              DepartmentBusinessRules departmentBusinessRules,
+                                              EmployeeBusinessRules employeeBusinessRules)
         {
             this.departmentRepository = departmentRepository;
             this.departmentBusinessRules = departmentBusinessRules;
+            this.employeeBusinessRules = employeeBusinessRules;
         }
 
         public async Task<CreateDepartmentResponse> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
+            await employeeBusinessRules.EnsureEmployeeExistsAsync(request.DepartmentManagerId);
             await departmentBusinessRules.EnsureDepartmentNameIsUnique(request.Name);
 
             DepartmentEntity? departmentToAdd = request.Adapt<DepartmentEntity>();
