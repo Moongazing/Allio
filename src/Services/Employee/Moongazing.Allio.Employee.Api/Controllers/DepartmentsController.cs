@@ -2,6 +2,7 @@
 using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Update;
+using Moongazing.Allio.Employee.Application.Features.Departments.Queries.GetByDepartmentManager;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -29,4 +30,12 @@ public sealed class DepartmentsController:BaseController
         UpdateDepartmentResponse result = await Sender.Send(updateDepartmentCommand).ConfigureAwait(false);
         return Ok(result);
     }
+    [HttpGet("by-department-manager/{managerId}")]
+    public async Task<IActionResult> GetByDepartmentManager([FromRoute] Guid managerId)
+    {
+        GetDepartmentByManagerIdQuery getDepartmentsByDepartmentManagerQuery = new() { DepartmentManagerId = managerId };
+        GetDepartmentByManagerIdResponse result = await Sender.Send(getDepartmentsByDepartmentManagerQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+
 }
