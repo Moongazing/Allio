@@ -23,7 +23,14 @@ public class DepartmentBusinessRules : BaseBusinessRules
             throw new BusinessException("Department");
         }
     }
-
+    public async Task EnsureDepartmentExists(Guid departmentId)
+    {
+        var department = await departmentRepository.AnyAsync(predicate: x => x.Id == departmentId, withDeleted: false);
+        if (!department)
+        {
+            throw new BusinessException("Department");
+        }
+    }
     public void EnsureDepartmentExists(DepartmentEntity? department)
     {
         if (department == null)

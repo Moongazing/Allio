@@ -58,10 +58,6 @@
     <Folder Include="Features\Branches\Queries\GetListByAddress\" />
     <Folder Include="Features\Branches\Rules\" />
     <Folder Include="Features\Departments\Constants\" />
-    <Folder Include="Features\Departments\Queries\GetById\" />
-    <Folder Include="Features\Departments\Queries\GetListByDynamic\" />
-    <Folder Include="Features\Departments\Queries\GetList\" />
-    <Folder Include="Features\Departments\Queries\GetByName\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Create\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Delete\" />
     <Folder Include="Features\DisciplinaryActions\Commands\Update\" />
