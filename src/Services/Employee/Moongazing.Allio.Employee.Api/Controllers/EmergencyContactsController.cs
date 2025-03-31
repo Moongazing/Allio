@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Create;
 using Moongazing.Kernel.Shared.Controller;
 
