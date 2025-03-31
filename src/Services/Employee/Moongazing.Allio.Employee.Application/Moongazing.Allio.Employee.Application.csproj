@@ -74,14 +74,12 @@
     <Folder Include="Features\Documents\Queries\GetListByDynamic\" />
     <Folder Include="Features\Documents\Queries\GetList\" />
     <Folder Include="Features\Documents\Rules\" />
-    <Folder Include="Features\EmergencyContacts\Commands\Create\" />
     <Folder Include="Features\EmergencyContacts\Commands\Delete\" />
     <Folder Include="Features\EmergencyContacts\Commands\Update\" />
     <Folder Include="Features\EmergencyContacts\Constants\" />
     <Folder Include="Features\EmergencyContacts\Queries\GetById\" />
     <Folder Include="Features\EmergencyContacts\Queries\GetListByDynamic\" />
     <Folder Include="Features\EmergencyContacts\Queries\GetList\" />
-    <Folder Include="Features\EmergencyContacts\Rules\" />
     <Folder Include="Features\Employees\Commands\Create\" />
     <Folder Include="Features\Employees\Commands\Delete\" />
     <Folder Include="Features\Employees\Commands\Update\" />

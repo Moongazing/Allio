@@ -12,7 +12,7 @@ public class BranchEntity : Entity<Guid>
     public CountryPhoneCode CountryPhoneCode { get; set; }
     public string PhoneNumber { get; set; } = default!;
     public Guid DepartmentId { get; set; }
-    public DepartmentEntity Department { get; set; } = default!;
+    public virtual DepartmentEntity Department { get; set; } = default!;
     public ICollection<EmployeeEntity> Employees { get; set; } = new HashSet<EmployeeEntity>();
     public BranchEntity()
     {
