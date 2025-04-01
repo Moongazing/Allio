@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Moongazing.Allio.Employee.Application.Features.Benefits.Commands.Delete;
-using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Update;
+using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetById;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -28,6 +27,13 @@ public sealed class EmergencyContactsController : BaseController
     public async Task<IActionResult> Update([FromBody] UpdateEmergencyContactCommand updateEmergencyContactCommand)
     {
         UpdateEmergencyContactResponse result = await Sender.Send(updateEmergencyContactCommand).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-id/{id}")]
+    public async Task<IActionResult> GetById([FromRoute] Guid id)
+    {
+        GetEmergencyContactByIdQuery getEmergencyContactByIdQuery = new() { Id = id };
+        GetEmergencyContactByIdResponse result = await Sender.Send(getEmergencyContactByIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
 }

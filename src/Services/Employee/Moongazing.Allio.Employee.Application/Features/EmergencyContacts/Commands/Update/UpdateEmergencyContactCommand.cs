@@ -1,7 +1,5 @@
 ﻿using Mapster;
 using MediatR;
-using Moongazing.Allio.Employee.Application.Features.Departments.Commands.Update;
-using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Create;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Rules;
 using Moongazing.Allio.Employee.Application.Features.Employees.Rules;
 using Moongazing.Allio.Employee.Application.Repositories;
@@ -11,11 +9,6 @@ using Moongazing.Kernel.Application.Pipelines.Caching;
 using Moongazing.Kernel.Application.Pipelines.Logging;
 using Moongazing.Kernel.Application.Pipelines.Performance;
 using Moongazing.Kernel.Application.Pipelines.Transaction;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Update;
 
