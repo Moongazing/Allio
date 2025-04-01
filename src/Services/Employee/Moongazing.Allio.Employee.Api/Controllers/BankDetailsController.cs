@@ -42,25 +42,43 @@ public sealed class BankDetailsController : BaseController
         UpdateBankDetailResponse result = await Sender.Send(updateBankDetailCommand).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-account-number/{accountNumber}")]
-    public async Task<IActionResult> GetByAccountNumber([FromRoute] string accountNumber)
+    [HttpGet("by-account-number")]
+    public async Task<IActionResult> GetByAccountNumber([FromQuery] string accountNumber)
     {
-        GetBankDetailByAccountNumberQuery getBankDetailByAccountNumberQuery = new() { AccountNumber = accountNumber };
-        GetBankDetailByAccountNumberResponse result = await Sender.Send(getBankDetailByAccountNumberQuery).ConfigureAwait(false);
+        var query = new GetBankDetailByAccountNumberQuery { AccountNumber = accountNumber };
+        var result = await Sender.Send(query).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-employee-id/{employeeId}")]
-    public async Task<IActionResult> GetByEmployeeId([FromRoute] Guid employeeId)
+
+    [HttpGet("by-employee-id")]
+    public async Task<IActionResult> GetByEmployeeId([FromQuery] Guid employeeId)
     {
-        GetBankDetailByEmployeeIdQuery getBankDetailByEmployeeIdQuery = new() { EmployeeId = employeeId };
-        GetBankDetailByEmployeeIdResponse result = await Sender.Send(getBankDetailByEmployeeIdQuery).ConfigureAwait(false);
+        var query = new GetBankDetailByEmployeeIdQuery { EmployeeId = employeeId };
+        var result = await Sender.Send(query).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-iban/{iban}")]
-    public async Task<IActionResult> GetByIBAN([FromRoute] string iban)
+
+    [HttpGet("by-iban")]
+    public async Task<IActionResult> GetByIBAN([FromQuery] string iban)
     {
-        GetBankDetailByIBANQuery getBankDetailByIBANQuery = new() { IBAN = iban };
-        GetBankDetailByIBANResponse result = await Sender.Send(getBankDetailByIBANQuery).ConfigureAwait(false);
+        var query = new GetBankDetailByIBANQuery { IBAN = iban };
+        var result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+
+    [HttpGet("by-bank-name")]
+    public async Task<IActionResult> GetListByBankName([FromQuery] PageRequest pageRequest, [FromQuery] string bankName)
+    {
+        var query = new GetListBankDetailByBankNameQuery { PageRequest = pageRequest, BankName = bankName };
+        var result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+
+    [HttpGet("by-currency")]
+    public async Task<IActionResult> GetListByCurrency([FromQuery] PageRequest pageRequest, [FromQuery] Currency currency)
+    {
+        var query = new GetListBankDetailByCurrencyQuery { PageRequest = pageRequest, Currency = currency };
+        var result = await Sender.Send(query).ConfigureAwait(false);
         return Ok(result);
     }
     [HttpGet("{id}")]
@@ -75,20 +93,6 @@ public sealed class BankDetailsController : BaseController
     {
         GetListBankDetailQuery getListBankDetailQuery = new() { PageRequest = pageRequest };
         PaginatedResponse<GetListBankDetailResponse> result = await Sender.Send(getListBankDetailQuery).ConfigureAwait(false);
-        return Ok(result);
-    }
-    [HttpGet("by-bank-name/{bankName}")]
-    public async Task<IActionResult> GetListByBankName([FromQuery] PageRequest pageRequest, string bankName)
-    {
-        GetListBankDetailByBankNameQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, BankName = bankName };
-        PaginatedResponse<GetListBankDetailByBankNameResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
-        return Ok(result);
-    }
-    [HttpGet("by-currency/{currency}")]
-    public async Task<IActionResult> GetListByCurrency([FromQuery] PageRequest pageRequest, Currency currency)
-    {
-        GetListBankDetailByCurrencyQuery getListBankDetailByBankNameQuery = new() { PageRequest = pageRequest, Currency = currency };
-        PaginatedResponse<GetListBankDetailByCurrencyResponse> result = await Sender.Send(getListBankDetailByBankNameQuery).ConfigureAwait(false);
         return Ok(result);
     }
     [HttpPost("filter")]

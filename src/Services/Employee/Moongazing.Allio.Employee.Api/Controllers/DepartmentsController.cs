@@ -37,27 +37,30 @@ public sealed class DepartmentsController : BaseController
         UpdateDepartmentResponse result = await Sender.Send(updateDepartmentCommand).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-department-manager/{managerId}")]
-    public async Task<IActionResult> GetByDepartmentManager([FromRoute] Guid managerId)
+    [HttpGet("by-department-manager")]
+    public async Task<IActionResult> GetByDepartmentManager([FromQuery] Guid managerId)
     {
         GetDepartmentByManagerIdQuery getDepartmentsByDepartmentManagerQuery = new() { DepartmentManagerId = managerId };
         GetDepartmentByManagerIdResponse result = await Sender.Send(getDepartmentsByDepartmentManagerQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-id/{id}")]
-    public async Task<IActionResult> GetByDepartmentId([FromRoute] Guid id)
+
+    [HttpGet("by-id")]
+    public async Task<IActionResult> GetByDepartmentId([FromQuery] Guid id)
     {
         GetDepartmentByIdQuery getDepartmentByIdQuery = new() { Id = id };
         GetDepartmentByIdResponse result = await Sender.Send(getDepartmentByIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-name/{name}")]
-    public async Task<IActionResult> GetDepartmentByName([FromRoute] string name)
+
+    [HttpGet("by-name")]
+    public async Task<IActionResult> GetDepartmentByName([FromQuery] string name)
     {
         GetDepartmentByNameQuery getDepartmentByNameQuery = new() { Name = name };
         GetDepartmentByNameResponse result = await Sender.Send(getDepartmentByNameQuery).ConfigureAwait(false);
         return Ok(result);
     }
+
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {

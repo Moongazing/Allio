@@ -3,6 +3,7 @@ using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Delete;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetById;
+using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetByPhone;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -36,4 +37,11 @@ public sealed class EmergencyContactsController : BaseController
         GetEmergencyContactByIdResponse result = await Sender.Send(getEmergencyContactByIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
+    [HttpGet("by-phone")]
+    public async Task<IActionResult> GetByPhone([FromQuery] GetEmergencyContactByPhoneQuery query)
+    {
+        GetEmergencyContactByPhoneResponse result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+
 }

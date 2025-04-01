@@ -55,20 +55,30 @@ public sealed class BenefitsController : BaseController
         PaginatedResponse<GetListBenefitResponse> result = await Sender.Send(getListBenefitQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-benefit/{benefit}")]
-    public async Task<IActionResult> GetListByBenefit([FromQuery] PageRequest pageRequest, [FromRoute] string benefit)
+    [HttpGet("by-benefit")]
+    public async Task<IActionResult> GetListByBenefit([FromQuery] PageRequest pageRequest, [FromQuery] string benefit)
     {
-        GetListBenefitByNameQuery getListByBenefitQuery = new() { PageRequest = pageRequest, BenefitName = benefit };
+        GetListBenefitByNameQuery getListByBenefitQuery = new()
+        {
+            PageRequest = pageRequest,
+            BenefitName = benefit
+        };
         PaginatedResponse<GetListBenefitByNameResponse> result = await Sender.Send(getListByBenefitQuery).ConfigureAwait(false);
         return Ok(result);
     }
-    [HttpGet("by-employee/{employeeId}")]
-    public async Task<IActionResult> GetListByEmployee([FromQuery] PageRequest pageRequest, [FromRoute] Guid employeeId)
+
+    [HttpGet("by-employee")]
+    public async Task<IActionResult> GetListByEmployee([FromQuery] PageRequest pageRequest, [FromQuery] Guid employeeId)
     {
-        GetListBenefitByEmployeeIdQuery getListBenefitByEmployeeIdQuery = new() { PageRequest = pageRequest, EmployeeId = employeeId };
+        GetListBenefitByEmployeeIdQuery getListBenefitByEmployeeIdQuery = new()
+        {
+            PageRequest = pageRequest,
+            EmployeeId = employeeId
+        };
         PaginatedResponse<GetListBenefitByEmployeeIdResponse> result = await Sender.Send(getListBenefitByEmployeeIdQuery).ConfigureAwait(false);
         return Ok(result);
     }
+
     [HttpGet("approaching-count")]
     public async Task<IActionResult> GetListByApproachingCount([FromQuery] PageRequest pageRequest, [FromQuery] int threshold)
     {
