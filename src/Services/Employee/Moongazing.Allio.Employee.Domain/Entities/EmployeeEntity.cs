@@ -25,12 +25,11 @@ public class EmployeeEntity : Entity<Guid>
     public decimal TaxAmount { get; set; }
     public decimal Bonus { get; set; }
 
-
-    
     public virtual BranchEntity Branch { get; set; } = default!;
     public virtual EmployeeEntity? Manager { get; set; }
     public virtual ProfessionEntity Profession { get; set; } = default!;
     public virtual DepartmentEntity Department { get; set; } = default!;
+    public virtual ICollection<AssetAssignmentEntity> Assets { get; set; } = new HashSet<AssetAssignmentEntity>();
     public virtual ICollection<DepartmentEntity> DepartmentManager { get; set; } = new HashSet<DepartmentEntity>();
 
     public virtual ICollection<TerminationEntity> Terminations { get; set; } = new HashSet<TerminationEntity>();

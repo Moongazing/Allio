@@ -122,14 +122,12 @@
     <Folder Include="Features\PerformanceReviews\Queries\GetListByDynamic\" />
     <Folder Include="Features\PerformanceReviews\Queries\GetList\" />
     <Folder Include="Features\PerformanceReviews\Rules\" />
-    <Folder Include="Features\Professions\Commands\Create\" />
     <Folder Include="Features\Professions\Commands\Delete\" />
     <Folder Include="Features\Professions\Commands\Update\" />
     <Folder Include="Features\Professions\Constants\" />
     <Folder Include="Features\Professions\Queries\GetById\" />
     <Folder Include="Features\Professions\Queries\GetListByDynamic\" />
     <Folder Include="Features\Professions\Queries\GetList\" />
-    <Folder Include="Features\Professions\Rules\" />
     <Folder Include="Features\Promotions\Commands\Create\" />
     <Folder Include="Features\Promotions\Commands\Delete\" />
     <Folder Include="Features\Promotions\Commands\Update\" />
