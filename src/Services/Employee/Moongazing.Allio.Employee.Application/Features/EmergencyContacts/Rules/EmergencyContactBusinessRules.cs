@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moongazing.Allio.Employee.Application.Repositories;
+using Moongazing.Allio.Employee.Domain.Entities;
 using Moongazing.Allio.Employee.Domain.Enums;
 using Moongazing.Kernel.Application.Rules;
 using Moongazing.Kernel.CrossCuttingConcerns.Exceptions.Types;
@@ -14,7 +15,13 @@ public class EmergencyContactBusinessRules : BaseBusinessRules
     {
         this.emergencyContactRepository = emergencyContactRepository;
     }
-
+    public void EnsureEmergencyContanctExists(EmergencyContactEntity? emergencyContact)
+    {
+        if (emergencyContact == null)
+        {
+            throw new BusinessException("Emergency contact does not exist");
+        }
+    }
     public async Task EnsurePhoneNumberIsUnique(string phoneNumber)
     {
         var emergencyContact = await emergencyContactRepository.AnyAsync(predicate: x => x.PhoneNumber == phoneNumber);
