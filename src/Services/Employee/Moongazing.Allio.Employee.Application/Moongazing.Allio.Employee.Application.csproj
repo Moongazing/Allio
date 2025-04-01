@@ -75,9 +75,6 @@
     <Folder Include="Features\Documents\Queries\GetList\" />
     <Folder Include="Features\Documents\Rules\" />
     <Folder Include="Features\EmergencyContacts\Constants\" />
-    <Folder Include="Features\EmergencyContacts\Queries\GetListByDynamic\" />
-    <Folder Include="Features\EmergencyContacts\Queries\GetList\" />
-    <Folder Include="Features\EmergencyContacts\Queries\GetListByEmployee\" />
     <Folder Include="Features\Employees\Commands\Create\" />
     <Folder Include="Features\Employees\Commands\Delete\" />
     <Folder Include="Features\Employees\Commands\Update\" />

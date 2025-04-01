@@ -4,6 +4,10 @@ using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Commands.Update;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetById;
 using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetByPhone;
+using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetList;
+using Moongazing.Allio.Employee.Application.Features.EmergencyContacts.Queries.GetListByEmployee;
+using Moongazing.Kernel.Application.Requests;
+using Moongazing.Kernel.Application.Responses;
 using Moongazing.Kernel.Shared.Controller;
 
 namespace Moongazing.Allio.Employee.Api.Controllers;
@@ -41,6 +45,25 @@ public sealed class EmergencyContactsController : BaseController
     public async Task<IActionResult> GetByPhone([FromQuery] GetEmergencyContactByPhoneQuery query)
     {
         GetEmergencyContactByPhoneResponse result = await Sender.Send(query).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet]
+    public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
+    {
+        GetListEmergencyContactQuery getListEmergencyContactQuery = new() { PageRequest = pageRequest };
+        PaginatedResponse<GetListEmergencyContactResponse> result = await Sender.Send(getListEmergencyContactQuery).ConfigureAwait(false);
+        return Ok(result);
+    }
+    [HttpGet("by-employee")]
+    public async Task<IActionResult> GetListByEmployee([FromQuery] Guid employeeId, [FromQuery] PageRequest pageRequest)
+    {
+        var query = new GetListEmergencyContactByEmployeeIdQuery
+        {
+            EmployeeId = employeeId,
+            PageRequest = pageRequest
+        };
+
+        PaginatedResponse<GetListEmergencyContactByEmployeeIdResponse> result = await Sender.Send(query).ConfigureAwait(false);
         return Ok(result);
     }
 
